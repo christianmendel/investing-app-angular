@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>Calculadora de Juros Compostos</h1>
+
+  <form action="" class="inputs">
+    <div>
+      <label>Valor inicial: </label>
+      <input
+        type="number"
+        [(ngModel)]="valorInicial"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <div>
+      <label>Aporte mensal: </label
+      ><input
+        type="number"
+        [(ngModel)]="aporteMensal"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <div>
+      <label>Prazo (anos): </label
+      ><input
+        type="number"
+        [(ngModel)]="prazoAnos"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <div>
+      <label>Taxa de juros anual (%): </label>
+      <input
+        type="number"
+        [(ngModel)]="taxaAnual"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+
+    <button (click)="calcular()">Calcular</button>
+  </form>
+
+  @if (resultadoFinal) {
+  <div class="resultados">
+    <p>
+      <strong>Total investido:</strong> R$
+      {{ totalInvestido | number : "1.2-2" }}
+    </p>
+
+    <p>
+      <strong>Valor final:</strong> R$ {{ resultadoFinal | number : "1.2-2" }}
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mês</th>
+          <th>Aporte</th>
+          <th>Juros</th>
+          <th>Saldo acumulado</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(linha of tabelaEvolucao; track linha) {
+        <tr>
+          <td>{{ linha.mes }}</td>
+          <td>R$ {{ linha.aporte | number : "1.2-2" }}</td>
+          <td>R$ {{ linha.juros | number : "1.2-2" }}</td>
+          <td>R$ {{ linha.saldo | number : "1.2-2" }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  }
+</div>
