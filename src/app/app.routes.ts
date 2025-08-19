@@ -1,4 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './screens/home/home.component';
+import { InfoActionComponent } from './screens/info-action/info-action.component';
 
-export const routes: Routes = [{ path: '', component: HomeComponent }];
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'info', component: InfoActionComponent },
+];

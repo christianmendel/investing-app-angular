@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Ações</h1>
+
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Digite o símbolo da ação"
+      [(ngModel)]="symbol"
+    />
+    <button (click)="searchStock()">Buscar</button>
+  </div>
+
+  <div class="stock-card" *ngIf="stock">
+    <div class="stock-header">
+      <img [src]="stock.logourl" alt="{{ stock.symbol }}" class="stock-logo" />
+      <h2>
+        {{ stock.longName }} <span class="symbol">({{ stock.symbol }})</span>
+      </h2>
+    </div>
+
+    <div class="stock-info">
+      <p><strong>Preço atual:</strong> R$ {{ stock.regularMarketPrice }}</p>
+      <p>
+        <strong>Variação:</strong> {{ stock.regularMarketChange }} ({{
+          stock.regularMarketChangePercent
+        }}%)
+      </p>
+      <p><strong>Máximo do dia:</strong> R$ {{ stock.regularMarketDayHigh }}</p>
+      <p><strong>Mínimo do dia:</strong> R$ {{ stock.regularMarketDayLow }}</p>
+      <p><strong>Volume:</strong> {{ stock.regularMarketVolume }}</p>
+      <p>
+        <strong>Máximo/Minimo 52 semanas:</strong> R$
+        {{ stock.fiftyTwoWeekLow }} - R$ {{ stock.fiftyTwoWeekHigh }}
+      </p>
+    </div>
+  </div>
+</div>
