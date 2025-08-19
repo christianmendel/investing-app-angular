@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class BrapiService {
 
-  private baseUrl = 'https://i9lw5it08i.execute-api.sa-east-1.amazonaws.com/v1';
+  private baseUrl = 'https://g72mvmx6r2cu6675seqs7jowfm0vkcbq.lambda-url.sa-east-1.on.aws';
 
   constructor(private http: HttpClient) { }
 

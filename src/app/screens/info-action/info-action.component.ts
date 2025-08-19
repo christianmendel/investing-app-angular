@@ -14,8 +14,6 @@ import { FormsModule } from '@angular/forms';
 export class InfoActionComponent {
   symbol: string = 'PETR4';
   stock: any = null;
-  loading = false;
-  error = '';
 
   constructor(private brapiService: BrapiService) {}
 
@@ -24,15 +22,8 @@ export class InfoActionComponent {
 
     this.stock = null;
 
-    this.brapiService.getStock(this.symbol).subscribe({
-      next: (data) => {
-        this.stock = JSON.parse(data.body).results[0];
-        this.loading = false;
-      },
-      error: (err) => {
-        this.error = 'Ação não encontrada ou erro na API.';
-        this.loading = false;
-      },
+    this.brapiService.getStock(this.symbol).subscribe((data) => {
+      this.stock = data.results[0];
     });
   }
 }
