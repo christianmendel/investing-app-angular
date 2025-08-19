@@ -7,7 +7,7 @@
       placeholder="Digite o símbolo da ação"
       [(ngModel)]="symbol"
     />
-    <button (click)="searchStock()">Buscar</button>
+    <button (click)="searchStock()" class="search-container-button">Buscar</button>
   </div>
 
   <div class="stock-card" *ngIf="stock">

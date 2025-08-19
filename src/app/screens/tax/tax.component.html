@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Calculadora de Impostos sobre Ações</h2>
+
+  <div class="form-group">
+    <label>Preço de compra (R$):</label>
+    <input type="number" [(ngModel)]="purchasePrice" min="0" />
+  </div>
+
+  <div class="form-group">
+    <label>Preço de venda (R$):</label>
+    <input type="number" [(ngModel)]="salePrice" min="0" />
+  </div>
+
+  <div class="form-group">
+    <label>Quantidade de ações:</label>
+    <input type="number" [(ngModel)]="quantity" min="0" />
+  </div>
+
+  <div class="form-group">
+    <label>Alíquota do IR (%):</label>
+    <input type="number" [(ngModel)]="taxRate" min="0" max="100" />
+  </div>
+
+  <button (click)="calculateTax()" class="margin-right-10">Calcular Imposto</button>
+  <button (click)="reset()" class="reset-btn">Limpar</button>
+
+  <div *ngIf="profit !== null" class="results">
+    <p><strong>Lucro:</strong> R$ {{ profit | number:'1.2-2' }}</p>
+    <p><strong>Imposto a pagar:</strong> R$ {{ tax | number:'1.2-2' }}</p>
+  </div>
+</div>

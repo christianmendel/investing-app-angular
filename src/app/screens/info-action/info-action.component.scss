@@ -4,23 +4,8 @@
   margin: 20px 0;
 }
 
-.search-container input {
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px 0 0 8px;
-  border: 1px solid #ddd;
-  width: 200px;
-}
-
-.search-container button {
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: 1px solid #1976d2;
-  background-color: #1976d2;
-  color: white;
+.search-container-button {
   border-radius: 0 8px 8px 0;
-  cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 .search-container button:hover {
